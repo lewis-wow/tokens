@@ -6,6 +6,12 @@
 
 JWTs are self-contained and embed user data directly within the payload. This allows microservices to verify them independently using cryptographic signatures, which eliminates central database lookups and significantly reduces network overhead.
 
+```http
+GET /api/v1/profile HTTP/1.1
+Host: api.example.com
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiaWF0IjoxNTE2MjM5MDIyfQ.t42p4AHef69Tyyi88U6-p0utZYYrg7mmCGhoAd7Zffs
+```
+
 ## The Problem
 
 JWTs are difficult to revoke instantly, meaning they remain valid until their expiration time. Additionally, because standard JWTs are only encoded and not encrypted, they can expose sensitive user information if intercepted on the client side.
